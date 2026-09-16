@@ -1,16 +1,11 @@
-/* =========================================
+/* =========================================================
+   JAAG — RESPONSIVE STYLESHEET
+   ========================================================= */
+
+
+/* =========================================================
    FONT
-========================================= */
-
-/*
-   Put your Neue Haas Grotesk font files here:
-
-   /fonts/NeueHaasGrotesk-Regular.woff2
-   /fonts/NeueHaasGrotesk-Medium.woff2
-
-   If you're using a different font filename,
-   change the URLs below.
-*/
+   ========================================================= */
 
 @font-face {
   font-family: "Neue Haas";
@@ -27,9 +22,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    RESET
-========================================= */
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -37,6 +32,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -49,11 +45,8 @@ body {
   font-family: "Neue Haas", Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.35;
-}
 
-a {
-  color: inherit;
-  text-decoration: none;
+  overflow-x: hidden;
 }
 
 img {
@@ -61,10 +54,15 @@ img {
   max-width: 100%;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-/* =========================================
-   FIXED NAVIGATION
-========================================= */
+
+/* =========================================================
+   FIXED DESKTOP NAV
+   ========================================================= */
 
 .site-nav {
   position: fixed;
@@ -84,7 +82,7 @@ img {
 }
 
 
-/* LOGO */
+/* Logo */
 
 .logo {
   display: block;
@@ -100,7 +98,7 @@ img {
 }
 
 
-/* NAV LINKS */
+/* Navigation */
 
 .site-nav nav {
   display: flex;
@@ -110,8 +108,6 @@ img {
 }
 
 .site-nav nav a {
-  display: inline-block;
-
   width: fit-content;
 
   font-size: 11px;
@@ -128,18 +124,18 @@ img {
 }
 
 
-/* =========================================
-   MAIN CONTENT
-========================================= */
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
 
 main {
   margin-left: 190px;
 }
 
 
-/* =========================================
-   HERO
-========================================= */
+/* =========================================================
+   HERO — DESKTOP
+   ========================================================= */
 
 .hero {
   min-height: 100vh;
@@ -148,51 +144,57 @@ main {
 
   display: grid;
 
-  grid-template-columns: minmax(400px, 1fr) minmax(300px, 0.75fr);
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(280px, 0.7fr);
 
   align-items: center;
 
-  gap: 7vw;
+  gap: 6vw;
 }
 
 
-/* HERO TEXT */
+/* Hero text */
 
 .hero-text {
-  align-self: center;
+  min-width: 0;
 }
 
 .hero h1 {
   margin: 0;
 
-  font-size: clamp(70px, 9vw, 145px);
+  font-size: clamp(64px, 8.5vw, 145px);
 
   line-height: 0.84;
 
   font-weight: 400;
 
   letter-spacing: -0.065em;
+
+  max-width: 900px;
 }
 
 
-/* HERO META */
+/* Hero metadata */
 
 .hero-meta {
   margin: 55px 0 0;
 
+  max-width: 400px;
+
   font-size: 10px;
 
-  letter-spacing: 0.1em;
-
   line-height: 1.4;
+
+  letter-spacing: 0.1em;
 }
 
 
-/* HERO IMAGE */
+/* Hero photo */
 
 .hero-image {
   width: 100%;
-  max-width: 560px;
+  max-width: 520px;
 
   justify-self: end;
 }
@@ -206,9 +208,9 @@ main {
 }
 
 
-/* =========================================
+/* =========================================================
    GENERAL SECTIONS
-========================================= */
+   ========================================================= */
 
 .section {
   padding: 120px 7vw 130px 4vw;
@@ -217,7 +219,7 @@ main {
 }
 
 
-/* SECTION LABEL */
+/* Section title */
 
 .section-label {
   display: grid;
@@ -244,9 +246,9 @@ main {
 }
 
 
-/* =========================================
+/* =========================================================
    SHOWS
-========================================= */
+   ========================================================= */
 
 .show-list {
   width: 100%;
@@ -255,7 +257,10 @@ main {
 .show {
   display: grid;
 
-  grid-template-columns: 120px 1fr 220px;
+  grid-template-columns:
+    120px
+    minmax(0, 1fr)
+    220px;
 
   align-items: baseline;
 
@@ -284,15 +289,15 @@ main {
 }
 
 .event {
-  font-size: 23px;
+  font-size: clamp(18px, 2vw, 23px);
 
   letter-spacing: -0.02em;
 }
 
 
-/* =========================================
+/* =========================================================
    ABOUT
-========================================= */
+   ========================================================= */
 
 .about-content {
   margin-left: 55px;
@@ -323,9 +328,9 @@ main {
 }
 
 
-/* =========================================
+/* =========================================================
    MIXES
-========================================= */
+   ========================================================= */
 
 .mix-list {
   margin-left: 55px;
@@ -336,7 +341,10 @@ main {
 .mix {
   display: grid;
 
-  grid-template-columns: 55px 1fr 70px;
+  grid-template-columns:
+    55px
+    minmax(0, 1fr)
+    70px;
 
   align-items: baseline;
 
@@ -356,9 +364,9 @@ main {
 }
 
 
-/* =========================================
+/* =========================================================
    WRITING
-========================================= */
+   ========================================================= */
 
 .writing-list {
   margin-left: 55px;
@@ -372,6 +380,8 @@ main {
   justify-content: space-between;
 
   align-items: baseline;
+
+  gap: 30px;
 
   padding: 19px 0;
 
@@ -391,9 +401,9 @@ main {
 }
 
 
-/* =========================================
+/* =========================================================
    CONTACT
-========================================= */
+   ========================================================= */
 
 .contact {
   min-height: 80vh;
@@ -422,7 +432,7 @@ main {
 .contact h2 {
   margin: 0 0 65px;
 
-  font-size: clamp(75px, 10vw, 160px);
+  font-size: clamp(70px, 9vw, 150px);
 
   line-height: 0.82;
 
@@ -436,9 +446,9 @@ main {
 
   font-size: 18px;
 
-  border-bottom: 1px solid #111;
-
   padding-bottom: 3px;
+
+  border-bottom: 1px solid #111;
 }
 
 .contact-email:hover {
@@ -446,9 +456,9 @@ main {
 }
 
 
-/* =========================================
+/* =========================================================
    FOOTER
-========================================= */
+   ========================================================= */
 
 footer {
   margin-left: 190px;
@@ -463,6 +473,8 @@ footer {
 
   align-items: center;
 
+  gap: 20px;
+
   font-size: 10px;
 
   letter-spacing: 0.08em;
@@ -473,6 +485,8 @@ footer {
 .footer-links {
   display: flex;
 
+  flex-wrap: wrap;
+
   gap: 25px;
 }
 
@@ -481,11 +495,13 @@ footer {
 }
 
 
-/* =========================================
-   TABLET
-========================================= */
+/* =========================================================
+   TABLET — 1000px
+   ========================================================= */
 
 @media (max-width: 1000px) {
+
+  /* Narrower navigation */
 
   .site-nav {
     width: 150px;
@@ -501,32 +517,47 @@ footer {
     margin-left: 150px;
   }
 
+
+  /* Hero */
+
   .hero {
     padding-left: 3vw;
+    padding-right: 5vw;
 
-    grid-template-columns: 1fr 0.8fr;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(240px, 0.65fr);
 
     gap: 5vw;
   }
 
   .hero h1 {
-    font-size: clamp(60px, 9vw, 100px);
+    font-size: clamp(58px, 8vw, 105px);
   }
 
+
+  /* Shows */
+
   .show {
-    grid-template-columns: 100px 1fr 160px;
+    grid-template-columns:
+      95px
+      minmax(0, 1fr)
+      150px;
   }
 
 }
 
 
-/* =========================================
-   MOBILE
-========================================= */
+/* =========================================================
+   SMALL TABLET / LARGE PHONE — 760px
+   ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 760px) {
 
-  /* NAV */
+  /*
+     Switch from fixed sidebar navigation
+     to a normal top navigation.
+  */
 
   .site-nav {
     position: relative;
@@ -534,7 +565,9 @@ footer {
     width: 100%;
     height: auto;
 
-    padding: 20px 18px;
+    padding: 20px 22px;
+
+    display: flex;
 
     flex-direction: row;
 
@@ -543,11 +576,17 @@ footer {
     align-items: flex-start;
   }
 
+
+  /* Logo */
+
   .logo {
     width: 65px;
 
     margin: 0;
   }
+
+
+  /* Mobile navigation */
 
   .site-nav nav {
     align-items: flex-end;
@@ -560,19 +599,19 @@ footer {
   }
 
 
-  /* MAIN */
+  /* Main */
 
   main {
     margin-left: 0;
   }
 
 
-  /* HERO */
+  /* Hero becomes vertical */
 
   .hero {
     min-height: auto;
 
-    padding: 65px 18px 90px;
+    padding: 70px 22px 90px;
 
     display: flex;
 
@@ -584,7 +623,7 @@ footer {
   }
 
   .hero h1 {
-    font-size: clamp(62px, 18vw, 100px);
+    font-size: clamp(62px, 15vw, 105px);
 
     line-height: 0.85;
   }
@@ -592,19 +631,30 @@ footer {
   .hero-meta {
     margin-top: 35px;
 
-    max-width: 280px;
+    max-width: 300px;
   }
+
+
+  /* Image */
 
   .hero-image {
-    max-width: 100%;
+    width: 100%;
+
+    max-width: 520px;
+
+    margin-left: auto;
+    margin-right: auto;
   }
 
 
-  /* SECTIONS */
+  /* Sections */
 
   .section {
-    padding: 80px 18px 90px;
+    padding: 80px 22px 90px;
   }
+
+
+  /* Section heading */
 
   .section-label {
     grid-template-columns: 40px 1fr;
@@ -613,12 +663,14 @@ footer {
   }
 
 
-  /* SHOWS */
+  /* Shows */
 
   .show {
-    grid-template-columns: 75px 1fr;
+    grid-template-columns:
+      75px
+      minmax(0, 1fr);
 
-    gap: 4px;
+    gap: 5px 10px;
 
     padding: 17px 0;
   }
@@ -636,27 +688,29 @@ footer {
   }
 
 
-  /* ABOUT */
+  /* About */
 
   .about-content {
     margin-left: 0;
   }
 
   .about-large {
-    font-size: 34px;
+    font-size: clamp(32px, 8vw, 48px);
 
     margin-bottom: 45px;
   }
 
 
-  /* MIXES */
+  /* Mixes */
 
   .mix-list {
     margin-left: 0;
   }
 
   .mix {
-    grid-template-columns: 40px 1fr;
+    grid-template-columns:
+      40px
+      minmax(0, 1fr);
 
     font-size: 16px;
   }
@@ -666,7 +720,7 @@ footer {
   }
 
 
-  /* WRITING */
+  /* Writing */
 
   .writing-list {
     margin-left: 0;
@@ -674,30 +728,32 @@ footer {
 
   .writing {
     font-size: 18px;
+
+    gap: 15px;
   }
 
 
-  /* CONTACT */
+  /* Contact */
 
   .contact {
     min-height: 70vh;
 
-    padding: 100px 18px;
+    padding: 100px 22px;
   }
 
   .contact h2 {
-    font-size: 20vw;
+    font-size: clamp(65px, 17vw, 110px);
 
     margin-bottom: 50px;
   }
 
 
-  /* FOOTER */
+  /* Footer */
 
   footer {
     margin-left: 0;
 
-    padding: 20px 18px;
+    padding: 20px 22px;
 
     flex-direction: column;
 
@@ -706,10 +762,180 @@ footer {
     gap: 15px;
   }
 
-  .footer-links {
-    flex-wrap: wrap;
+}
 
-    gap: 15px;
+
+/* =========================================================
+   PHONE — 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  /* Header */
+
+  .site-nav {
+    padding: 18px 18px;
+
+    gap: 20px;
+  }
+
+  .logo {
+    width: 58px;
+  }
+
+  .site-nav nav {
+    gap: 6px;
+  }
+
+  .site-nav nav a {
+    font-size: 8px;
+
+    letter-spacing: 0.06em;
+  }
+
+
+  /* Hero */
+
+  .hero {
+    padding: 55px 18px 70px;
+
+    gap: 45px;
+  }
+
+  .hero h1 {
+    font-size: clamp(58px, 17vw, 82px);
+
+    letter-spacing: -0.07em;
+  }
+
+  .hero-meta {
+    font-size: 9px;
+
+    margin-top: 30px;
+  }
+
+
+  /* Photo */
+
+  .hero-image img {
+    aspect-ratio: 4 / 5;
+  }
+
+
+  /* Sections */
+
+  .section {
+    padding: 65px 18px 75px;
+  }
+
+  .section-label {
+    margin-bottom: 35px;
+  }
+
+
+  /* Shows */
+
+  .show {
+    grid-template-columns:
+      65px
+      minmax(0, 1fr);
+  }
+
+  .date,
+  .location {
+    font-size: 9px;
+  }
+
+  .event {
+    font-size: 18px;
+  }
+
+
+  /* About */
+
+  .about-large {
+    font-size: 30px;
+
+    line-height: 1;
+  }
+
+  .about-body {
+    font-size: 15px;
+  }
+
+
+  /* Mixes */
+
+  .mix {
+    padding: 16px 0;
+
+    font-size: 15px;
+  }
+
+
+  /* Writing */
+
+  .writing {
+    font-size: 17px;
+
+    padding: 16px 0;
+  }
+
+
+  /* Contact */
+
+  .contact {
+    min-height: 65vh;
+
+    padding: 85px 18px;
+  }
+
+  .contact h2 {
+    font-size: 20vw;
+
+    letter-spacing: -0.07em;
+  }
+
+  .contact-email {
+    font-size: 16px;
+  }
+
+
+  /* Footer */
+
+  footer {
+    padding: 18px;
+
+    font-size: 9px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES — 360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .site-nav {
+    align-items: flex-start;
+  }
+
+  .site-nav nav a {
+    font-size: 7.5px;
+  }
+
+  .hero h1 {
+    font-size: 55px;
+  }
+
+  .hero-meta {
+    max-width: 230px;
+  }
+
+  .event {
+    font-size: 17px;
   }
 
 }

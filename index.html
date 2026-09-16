@@ -1,509 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>jaag — DJ / event curator</title>
-  <meta name="description" content="jaag — Bay Area DJ, event producer, writer, and photographer.">
+  <title>jaag — DJ / Event Curator</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    :root {
-      --bg: #f5f3ee;
-      --text: #111111;
-      --muted: #77736c;
-      --line: #cfcac1;
-      --accent: #ae1971;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 15px;
-      line-height: 1.4;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: var(--accent);
-    }
-
-    /*
-       Neue Haas Grotesk:
-       If you have a licensed webfont file, add @font-face rules here
-       and place the font files in a /fonts folder.
-    */
-
-    /* HEADER */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 20px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      z-index: 100;
-      pointer-events: none;
-    }
-
-    header > * {
-      pointer-events: auto;
-    }
-
-    .logo {
-      display: block;
-      width: 190px;
-    }
-
-    .logo img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .nav {
-      display: flex;
-      gap: 24px;
-      padding-top: 5px;
-      font-size: 13px;
-      text-transform: lowercase;
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      padding: 24px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
-      padding-bottom: 48px;
-    }
-
-    .hero-note {
-      max-width: 270px;
-      font-size: 18px;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      text-align: right;
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 110px 24px;
-      border-top: 1px solid var(--text);
-    }
-
-    .section-header {
-      display: grid;
-      grid-template-columns: 25% 75%;
-      margin-bottom: 52px;
-    }
-
-    .section-title {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .section-intro {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* SHOWS */
-    .shows-list {
-      border-top: 1px solid var(--line);
-    }
-
-    .show {
-      display: grid;
-      grid-template-columns: 15% 35% 25% 25%;
-      padding: 15px 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 15px;
-    }
-
-    .show-date,
-    .show-type {
-      color: var(--muted);
-    }
-
-    .show-city {
-      text-align: right;
-    }
-
-    /* LISTEN */
-    .listen-list {
-      border-top: 1px solid var(--line);
-    }
-
-    .listen-item {
-      display: grid;
-      grid-template-columns: 15% 60% 25%;
-      padding: 17px 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 17px;
-    }
-
-    .listen-year,
-    .listen-link {
-      color: var(--muted);
-    }
-
-    .listen-link {
-      text-align: right;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    /* ABOUT */
-    .about {
-      display: grid;
-      grid-template-columns: 25% 50% 25%;
-    }
-
-    .about-text {
-      font-size: clamp(25px, 3.2vw, 44px);
-      line-height: 1.06;
-      letter-spacing: -0.045em;
-    }
-
-    /* MAJA BLAST */
-    .maja {
-      display: grid;
-      grid-template-columns: 50% 50%;
-      border: 1px solid var(--text);
-    }
-
-    .maja-image {
-      min-height: 560px;
-      background-image: url("images/maja-blast.jpg");
-      background-size: cover;
-      background-position: center;
-      background-color: #ddd;
-    }
-
-    .maja-text {
-      min-height: 560px;
-      padding: 35px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .maja-title {
-      font-size: clamp(58px, 8vw, 120px);
-      line-height: 0.8;
-      letter-spacing: -0.065em;
-    }
-
-    .maja-description {
-      max-width: 390px;
-      font-size: 18px;
-      line-height: 1.15;
-    }
-
-    .maja-link {
-      display: inline-block;
-      margin-top: 22px;
-      font-size: 13px;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    /* CONTACT */
-    .contact {
-      min-height: 65vh;
-      display: grid;
-      grid-template-columns: 25% 75%;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .contact-links a {
-      font-size: clamp(32px, 5vw, 72px);
-      line-height: 1;
-      letter-spacing: -0.055em;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 18px 24px;
-      border-top: 1px solid var(--text);
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    /* MOBILE */
-    @media (max-width: 700px) {
-      header {
-        padding: 15px 16px;
-      }
-
-      .logo {
-        width: 130px;
-      }
-
-      .nav {
-        gap: 12px;
-        font-size: 11px;
-        padding-top: 3px;
-      }
-
-      .hero {
-        min-height: 92vh;
-        padding: 16px;
-        padding-bottom: 35px;
-      }
-
-      .hero-note {
-        font-size: 15px;
-        max-width: 210px;
-      }
-
-      section {
-        padding: 75px 16px;
-      }
-
-      .section-header {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        margin-bottom: 35px;
-      }
-
-      .show {
-        grid-template-columns: 22% 48% 30%;
-        font-size: 13px;
-      }
-
-      .show-type {
-        display: none;
-      }
-
-      .show-city {
-        text-align: right;
-      }
-
-      .listen-item {
-        grid-template-columns: 20% 55% 25%;
-        font-size: 15px;
-      }
-
-      .about {
-        grid-template-columns: 1fr;
-      }
-
-      .about-text {
-        margin-top: 28px;
-      }
-
-      .maja {
-        grid-template-columns: 1fr;
-      }
-
-      .maja-image {
-        min-height: 68vw;
-      }
-
-      .maja-text {
-        min-height: 390px;
-        padding: 25px;
-      }
-
-      .contact {
-        min-height: 60vh;
-        grid-template-columns: 1fr;
-      }
-
-      .contact-links {
-        margin-top: 35px;
-      }
-
-      footer {
-        padding: 15px 16px;
-        flex-direction: column;
-        gap: 5px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 
 <body>
 
-  <header>
-    <a href="#" class="logo" aria-label="jaag home">
-      <img src="images/jaag_type2.png" alt="jaag">
+
+  <!-- =========================================
+       FIXED NAVIGATION
+  ========================================== -->
+
+  <header class="site-nav">
+
+    <a href="#top" class="logo">
+      <img src="images/jaag-logo.png" alt="jaag">
     </a>
 
-    <nav class="nav" aria-label="Main navigation">
-      <a href="#shows">shows</a>
-      <a href="#listen">listen</a>
-      <a href="#about">about</a>
-      <a href="#contact">contact</a>
+    <nav>
+      <a href="#shows">01 SHOWS</a>
+      <a href="#about">02 ABOUT</a>
+      <a href="#mixes">03 MIXES</a>
+      <a href="#writing">04 WRITING</a>
+      <a href="#contact">05 CONTACT</a>
     </nav>
+
   </header>
 
-  <main>
 
-    <!-- HERO -->
+
+  <!-- =========================================
+       MAIN
+  ========================================== -->
+
+  <main id="top">
+
+
+    <!-- =======================================
+         HERO
+    ======================================== -->
+
     <section class="hero">
-      <div class="hero-note">
-        DJ / event curator / writer / photographer<br>
-        Bay Area
+
+      <div class="hero-text">
+
+        <h1>
+          music for<br>
+          feeling<br>
+          something.
+        </h1>
+
+        <p class="hero-meta">
+          DJ / EVENT CURATOR / WRITER / PHOTOGRAPHER
+        </p>
+
       </div>
+
+
+      <!-- YOUR PHOTO -->
+
+      <div class="hero-image">
+
+        <img
+          src="images/jaag-photo.jpg"
+          alt="jaag"
+        >
+
+      </div>
+
     </section>
 
-    <!-- SHOWS -->
-    <section id="shows">
-      <div class="section-header">
-        <div class="section-title">shows</div>
-        <div class="section-intro">upcoming + selected past</div>
+
+
+    <!-- =======================================
+         SHOWS
+    ======================================== -->
+
+    <section class="section" id="shows">
+
+      <div class="section-label">
+        <span>01</span>
+        <h2>SHOWS</h2>
       </div>
 
-      <div class="shows-list">
 
-        <!-- Replace these with your actual shows -->
+      <div class="show-list">
+
         <a href="#" class="show">
-          <div class="show-date">09.20</div>
-          <div>Maja Blast</div>
-          <div class="show-type">DJ set</div>
-          <div class="show-city">Oakland, CA</div>
+
+          <span class="date">
+            OCT 18
+          </span>
+
+          <span class="event">
+            Maja Blast
+          </span>
+
+          <span class="location">
+            San Francisco, CA
+          </span>
+
         </a>
 
-        <a href="#" class="show">
-          <div class="show-date">10.04</div>
-          <div>Event Name</div>
-          <div class="show-type">DJ set</div>
-          <div class="show-city">San Francisco, CA</div>
-        </a>
 
         <a href="#" class="show">
-          <div class="show-date">10.18</div>
-          <div>Radio Session</div>
-          <div class="show-type">radio</div>
-          <div class="show-city">online</div>
+
+          <span class="date">
+            NOV 07
+          </span>
+
+          <span class="event">
+            Radio Show
+          </span>
+
+          <span class="location">
+            Bay Area
+          </span>
+
+        </a>
+
+
+        <a href="#" class="show">
+
+          <span class="date">
+            NOV 22
+          </span>
+
+          <span class="event">
+            Maja Blast
+          </span>
+
+          <span class="location">
+            San Francisco, CA
+          </span>
+
         </a>
 
       </div>
+
     </section>
 
-    <!-- LISTEN -->
-    <section id="listen">
-      <div class="section-header">
-        <div class="section-title">listen</div>
-        <div class="section-intro">mixes + radio</div>
+
+
+    <!-- =======================================
+         ABOUT
+    ======================================== -->
+
+    <section class="section" id="about">
+
+      <div class="section-label">
+        <span>02</span>
+        <h2>ABOUT</h2>
       </div>
 
-      <div class="listen-list">
 
-        <!-- Replace # with your actual SoundCloud / Mixcloud links -->
-        <a href="#" class="listen-item" target="_blank" rel="noopener">
-          <span class="listen-year">2026</span>
-          <span>summer mix</span>
-          <span class="listen-link">soundcloud →</span>
-        </a>
+      <div class="about-content">
 
-        <a href="#" class="listen-item" target="_blank" rel="noopener">
-          <span class="listen-year">2026</span>
-          <span>radio session</span>
-          <span class="listen-link">listen →</span>
-        </a>
+        <p class="about-large">
+          jaag is a DJ, event curator, writer,
+          and photographer raised and currently
+          living in the Bay Area.
+        </p>
 
-        <a href="#" class="listen-item" target="_blank" rel="noopener">
-          <span class="listen-year">2025</span>
-          <span>Maja Blast</span>
-          <span class="listen-link">mix →</span>
-        </a>
 
-      </div>
-    </section>
+        <div class="about-body">
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="about">
-        <div class="section-title">about</div>
+          <p>
+            Her sets move between genres rather than
+            staying inside one. Breaks, electro,
+            leftfield bass, trance, acid, global
+            percussion, and unexpected vocal moments
+            become part of the same rhythmic fabric.
+          </p>
 
-        <div class="about-text">
-          jaag is a Bay Area DJ, event curator,
-          writer, and photographer.
 
-          <br><br>
+          <p>
+            She is also the founder of Maja Blast,
+            a genre-less party series built around
+            trust, surprise, and dancing.
+          </p>
 
-          weaving breaks, electro, leftfield bass,
-          trance, acid, and global percussive sounds
-          into a cohesive rhythmic fabric.
         </div>
-      </div>
-    </section>
-
-    <!-- MAJA BLAST -->
-    <section>
-      <div class="maja">
-
-        <!-- Add your Maja Blast image as:
-             images/maja-blast.jpg -->
-        <div class="maja-image"></div>
-
-        <div class="maja-text">
-          <div class="maja-title">
-            maja<br>blast
-          </div>
-
-          <div class="maja-description">
-            A genre-less, set-time-less party series
-            created in the Bay Area.
-
-            <a href="https://majablast.com/" class="maja-link">visit maja blast →</a>
-          </div>
-        </div>
 
       </div>
+
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-      <div class="section-title">contact</div>
 
-      <div class="contact-links">
-        <!-- Replace these URLs with your actual accounts -->
-        <a href="mailto:hello@jaag.world">booking</a>
-        <a href="#" target="_blank" rel="noopener">instagram</a>
-        <a href="#" target="_blank" rel="noopener">soundcloud</a>
-        <a href="#" target="_blank" rel="noopener">mixcloud</a>
+
+    <!-- =======================================
+         MIXES
+    ======================================== -->
+
+    <section class="section" id="mixes">
+
+      <div class="section-label">
+        <span>03</span>
+        <h2>MIXES</h2>
       </div>
+
+
+      <div class="mix-list">
+
+
+        <a href="#" class="mix">
+
+          <span>01</span>
+
+          <span>
+            jaag — radio mix
+          </span>
+
+          <span>
+            2026
+          </span>
+
+        </a>
+
+
+        <a href="#" class="mix">
+
+          <span>02</span>
+
+          <span>
+            jaag — club mix
+          </span>
+
+          <span>
+            2026
+          </span>
+
+        </a>
+
+
+        <a href="#" class="mix">
+
+          <span>03</span>
+
+          <span>
+            jaag — Maja Blast
+          </span>
+
+          <span>
+            2026
+          </span>
+
+        </a>
+
+
+      </div>
+
     </section>
+
+
+
+    <!-- =======================================
+         WRITING
+    ======================================== -->
+
+    <section class="section" id="writing">
+
+      <div class="section-label">
+        <span>04</span>
+        <h2>WRITING</h2>
+      </div>
+
+
+      <div class="writing-list">
+
+
+        <a href="#" class="writing">
+
+          <span>
+            Notes on dance floors
+          </span>
+
+          <span>
+            →
+          </span>
+
+        </a>
+
+
+        <a href="#" class="writing">
+
+          <span>
+            Music, memory & place
+          </span>
+
+          <span>
+            →
+          </span>
+
+        </a>
+
+
+        <a href="#" class="writing">
+
+          <span>
+            Bay Area transmissions
+          </span>
+
+          <span>
+            →
+          </span>
+
+        </a>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================
+         CONTACT
+    ======================================== -->
+
+    <section class="contact" id="contact">
+
+      <p class="contact-label">
+        BOOKINGS / COLLABORATIONS
+      </p>
+
+
+      <h2>
+        let's make<br>
+        something.
+      </h2>
+
+
+      <a
+        href="mailto:hello@jaag.world"
+        class="contact-email"
+      >
+        hello@jaag.world
+      </a>
+
+    </section>
+
 
   </main>
 
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
   <footer>
-    <span>© 2026 jaag</span>
-    <span>San Francisco, CA</span>
+
+    <span>
+      © 2026 jaag
+    </span>
+
+
+    <div class="footer-links">
+
+      <a href="#">
+        Instagram
+      </a>
+
+      <a href="#">
+        SoundCloud
+      </a>
+
+      <a href="#">
+        Mixcloud
+      </a>
+
+    </div>
+
   </footer>
 
+
 </body>
+
 </html>

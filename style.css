@@ -1,0 +1,715 @@
+/* =========================================
+   FONT
+========================================= */
+
+/*
+   Put your Neue Haas Grotesk font files here:
+
+   /fonts/NeueHaasGrotesk-Regular.woff2
+   /fonts/NeueHaasGrotesk-Medium.woff2
+
+   If you're using a different font filename,
+   change the URLs below.
+*/
+
+@font-face {
+  font-family: "Neue Haas";
+  src: url("fonts/NeueHaasGrotesk-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Haas";
+  src: url("fonts/NeueHaasGrotesk-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background: #f5f3ef;
+  color: #111;
+
+  font-family: "Neue Haas", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* =========================================
+   FIXED NAVIGATION
+========================================= */
+
+.site-nav {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 190px;
+  height: 100vh;
+
+  padding: 28px 25px;
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 100;
+}
+
+
+/* LOGO */
+
+.logo {
+  display: block;
+
+  width: 70px;
+
+  margin-bottom: 80px;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+
+/* NAV LINKS */
+
+.site-nav nav {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.site-nav nav a {
+  display: inline-block;
+
+  width: fit-content;
+
+  font-size: 11px;
+  line-height: 1.2;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  transition: opacity 0.2s ease;
+}
+
+.site-nav nav a:hover {
+  opacity: 0.45;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+main {
+  margin-left: 190px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  min-height: 100vh;
+
+  padding: 60px 7vw 80px 4vw;
+
+  display: grid;
+
+  grid-template-columns: minmax(400px, 1fr) minmax(300px, 0.75fr);
+
+  align-items: center;
+
+  gap: 7vw;
+}
+
+
+/* HERO TEXT */
+
+.hero-text {
+  align-self: center;
+}
+
+.hero h1 {
+  margin: 0;
+
+  font-size: clamp(70px, 9vw, 145px);
+
+  line-height: 0.84;
+
+  font-weight: 400;
+
+  letter-spacing: -0.065em;
+}
+
+
+/* HERO META */
+
+.hero-meta {
+  margin: 55px 0 0;
+
+  font-size: 10px;
+
+  letter-spacing: 0.1em;
+
+  line-height: 1.4;
+}
+
+
+/* HERO IMAGE */
+
+.hero-image {
+  width: 100%;
+  max-width: 560px;
+
+  justify-self: end;
+}
+
+.hero-image img {
+  width: 100%;
+
+  aspect-ratio: 4 / 5;
+
+  object-fit: cover;
+}
+
+
+/* =========================================
+   GENERAL SECTIONS
+========================================= */
+
+.section {
+  padding: 120px 7vw 130px 4vw;
+
+  border-top: 1px solid #111;
+}
+
+
+/* SECTION LABEL */
+
+.section-label {
+  display: grid;
+
+  grid-template-columns: 55px 1fr;
+
+  margin-bottom: 65px;
+}
+
+.section-label span {
+  font-size: 10px;
+
+  letter-spacing: 0.08em;
+}
+
+.section-label h2 {
+  margin: 0;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================
+   SHOWS
+========================================= */
+
+.show-list {
+  width: 100%;
+}
+
+.show {
+  display: grid;
+
+  grid-template-columns: 120px 1fr 220px;
+
+  align-items: baseline;
+
+  padding: 19px 0;
+
+  border-top: 1px solid #aaa;
+
+  transition: padding-left 0.2s ease;
+}
+
+.show:last-child {
+  border-bottom: 1px solid #aaa;
+}
+
+.show:hover {
+  padding-left: 12px;
+}
+
+.date,
+.location {
+  font-size: 10px;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.event {
+  font-size: 23px;
+
+  letter-spacing: -0.02em;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about-content {
+  margin-left: 55px;
+
+  max-width: 900px;
+}
+
+.about-large {
+  max-width: 850px;
+
+  margin: 0 0 65px;
+
+  font-size: clamp(32px, 4vw, 56px);
+
+  line-height: 0.98;
+
+  letter-spacing: -0.04em;
+}
+
+.about-body {
+  max-width: 550px;
+
+  font-size: 16px;
+}
+
+.about-body p {
+  margin: 0 0 25px;
+}
+
+
+/* =========================================
+   MIXES
+========================================= */
+
+.mix-list {
+  margin-left: 55px;
+
+  max-width: 950px;
+}
+
+.mix {
+  display: grid;
+
+  grid-template-columns: 55px 1fr 70px;
+
+  align-items: baseline;
+
+  padding: 19px 0;
+
+  border-top: 1px solid #aaa;
+
+  font-size: 18px;
+}
+
+.mix:last-child {
+  border-bottom: 1px solid #aaa;
+}
+
+.mix:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   WRITING
+========================================= */
+
+.writing-list {
+  margin-left: 55px;
+
+  max-width: 950px;
+}
+
+.writing {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: baseline;
+
+  padding: 19px 0;
+
+  border-top: 1px solid #aaa;
+
+  font-size: 21px;
+
+  letter-spacing: -0.02em;
+}
+
+.writing:last-child {
+  border-bottom: 1px solid #aaa;
+}
+
+.writing:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact {
+  min-height: 80vh;
+
+  padding: 150px 7vw 150px 4vw;
+
+  border-top: 1px solid #111;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.contact-label {
+  margin: 0 0 45px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.contact h2 {
+  margin: 0 0 65px;
+
+  font-size: clamp(75px, 10vw, 160px);
+
+  line-height: 0.82;
+
+  font-weight: 400;
+
+  letter-spacing: -0.065em;
+}
+
+.contact-email {
+  width: fit-content;
+
+  font-size: 18px;
+
+  border-bottom: 1px solid #111;
+
+  padding-bottom: 3px;
+}
+
+.contact-email:hover {
+  opacity: 0.5;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+  margin-left: 190px;
+
+  padding: 24px 4vw;
+
+  border-top: 1px solid #111;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  font-size: 10px;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.footer-links {
+  display: flex;
+
+  gap: 25px;
+}
+
+.footer-links a:hover {
+  opacity: 0.5;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .site-nav {
+    width: 150px;
+
+    padding: 24px 20px;
+  }
+
+  main {
+    margin-left: 150px;
+  }
+
+  footer {
+    margin-left: 150px;
+  }
+
+  .hero {
+    padding-left: 3vw;
+
+    grid-template-columns: 1fr 0.8fr;
+
+    gap: 5vw;
+  }
+
+  .hero h1 {
+    font-size: clamp(60px, 9vw, 100px);
+  }
+
+  .show {
+    grid-template-columns: 100px 1fr 160px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  /* NAV */
+
+  .site-nav {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+
+    padding: 20px 18px;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+  }
+
+  .logo {
+    width: 65px;
+
+    margin: 0;
+  }
+
+  .site-nav nav {
+    align-items: flex-end;
+
+    gap: 7px;
+  }
+
+  .site-nav nav a {
+    font-size: 9px;
+  }
+
+
+  /* MAIN */
+
+  main {
+    margin-left: 0;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height: auto;
+
+    padding: 65px 18px 90px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 60px;
+  }
+
+  .hero h1 {
+    font-size: clamp(62px, 18vw, 100px);
+
+    line-height: 0.85;
+  }
+
+  .hero-meta {
+    margin-top: 35px;
+
+    max-width: 280px;
+  }
+
+  .hero-image {
+    max-width: 100%;
+  }
+
+
+  /* SECTIONS */
+
+  .section {
+    padding: 80px 18px 90px;
+  }
+
+  .section-label {
+    grid-template-columns: 40px 1fr;
+
+    margin-bottom: 45px;
+  }
+
+
+  /* SHOWS */
+
+  .show {
+    grid-template-columns: 75px 1fr;
+
+    gap: 4px;
+
+    padding: 17px 0;
+  }
+
+  .date {
+    grid-row: span 2;
+  }
+
+  .event {
+    font-size: 19px;
+  }
+
+  .location {
+    grid-column: 2;
+  }
+
+
+  /* ABOUT */
+
+  .about-content {
+    margin-left: 0;
+  }
+
+  .about-large {
+    font-size: 34px;
+
+    margin-bottom: 45px;
+  }
+
+
+  /* MIXES */
+
+  .mix-list {
+    margin-left: 0;
+  }
+
+  .mix {
+    grid-template-columns: 40px 1fr;
+
+    font-size: 16px;
+  }
+
+  .mix span:last-child {
+    display: none;
+  }
+
+
+  /* WRITING */
+
+  .writing-list {
+    margin-left: 0;
+  }
+
+  .writing {
+    font-size: 18px;
+  }
+
+
+  /* CONTACT */
+
+  .contact {
+    min-height: 70vh;
+
+    padding: 100px 18px;
+  }
+
+  .contact h2 {
+    font-size: 20vw;
+
+    margin-bottom: 50px;
+  }
+
+
+  /* FOOTER */
+
+  footer {
+    margin-left: 0;
+
+    padding: 20px 18px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+
+    gap: 15px;
+  }
+
+}

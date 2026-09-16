@@ -341,10 +341,9 @@ main {
 .mix {
   display: grid;
 
-  grid-template-columns:
-    55px
-    minmax(0, 1fr)
-    70px;
+  grid-template-columns: 55px minmax(0, 1fr) 60px;
+
+  column-gap: 20px;
 
   align-items: baseline;
 
@@ -355,8 +354,9 @@ main {
   font-size: 18px;
 }
 
-.mix:last-child {
-  border-bottom: 1px solid #aaa;
+.mix span:last-child {
+  white-space: nowrap;
+  text-align: right;
 }
 
 .mix:hover {

@@ -189,6 +189,35 @@ main {
   letter-spacing: 0.1em;
 }
 
+.hero-socials {
+  gap: 15px;
+  margin-top: 18px;
+}
+
+.hero-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  margin-top: 22px;
+}
+
+.hero-socials a {
+  font-size: 10px;
+  line-height: 1.4;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  border-bottom: 1px solid #111;
+  padding-bottom: 2px;
+
+  transition: opacity 0.2s ease;
+}
+
+.hero-socials a:hover {
+  opacity: 0.45;
+}
 
 /* Hero photo */
 

@@ -488,55 +488,59 @@ main {
 
 
 /* =========================================================
-   CONTACT
-   ========================================================= */
+CONTACT
+========================================================= */
 
 .contact {
-  min-height: 80vh;
-  padding: 120px 7vw 130px 4vw;
-  border-top: 1px solid #111;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+min-height: 80vh;
+padding: 120px 7vw 130px 4vw;
+border-top: 1px solid #111;
+display: flex;
+flex-direction: column;
+justify-content: center;
 }
 
-/* Match section headings 01–04 */
+/* Match the section labels in sections 01–04 */
 .contact .section-label {
-  display: grid;
-  grid-template-columns: 55px 1fr;
-  margin-bottom: 65px;
+display: grid;
+grid-template-columns: 55px 1fr;
+margin-bottom: 65px;
 }
 
 .contact .section-label span {
-  font-size: 10px;
-  letter-spacing: 0.08em;
+font-size: 10px;
+letter-spacing: 0.08em;
 }
 
 .contact .section-label h2 {
-  margin: 0;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+margin: 0;
+font-family: "Neue Haas", Arial, Helvetica, sans-serif;
+font-size: 11px;
+font-weight: 500;
+line-height: 1.35;
+letter-spacing: 0.08em;
+text-transform: uppercase;
 }
 
-/* Contact content heading, if present separately */
-.contact h3 {
-  margin: 0 0 65px;
-  font-size: clamp(70px, 9vw, 150px);
-  line-height: 0.82;
-  font-weight: 400;
-  letter-spacing: -0.065em;
+/* Large "let's dance." heading */
+.contact > h2 {
+margin: 0 0 65px;
+font-family: "Neue Haas", Arial, Helvetica, sans-serif;
+font-size: clamp(70px, 9vw, 150px);
+line-height: 0.82;
+font-weight: 400;
+letter-spacing: -0.065em;
 }
 
 .contact-email {
-  width: fit-content;
-  font-size: 18px;
-  padding-bottom: 3px;
-  border-bottom: 1px solid #111;
+width: fit-content;
+font-size: 18px;
+padding-bottom: 3px;
+border-bottom: 1px solid #111;
 }
 
-.contact-email:hover {
-  opacity: 0.5;
+.contact-email {
+opacity: 0.5;
 }
 
 

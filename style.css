@@ -500,7 +500,7 @@ flex-direction: column;
 justify-content: center;
 }
 
-/* Match the section labels in sections 01–04 */
+/* Match sections 01–04 */
 .contact .section-label {
 display: grid;
 grid-template-columns: 55px 1fr;
@@ -514,18 +514,14 @@ letter-spacing: 0.08em;
 
 .contact .section-label h2 {
 margin: 0;
-font-family: "Neue Haas", Arial, Helvetica, sans-serif;
 font-size: 11px;
 font-weight: 500;
-line-height: 1.35;
 letter-spacing: 0.08em;
-text-transform: uppercase;
 }
 
-/* Large "let's dance." heading */
-.contact > h2 {
+/* Large "let's dance." headline */
+.contact h3 {
 margin: 0 0 65px;
-font-family: "Neue Haas", Arial, Helvetica, sans-serif;
 font-size: clamp(70px, 9vw, 150px);
 line-height: 0.82;
 font-weight: 400;
